@@ -19,7 +19,7 @@ Read [`docs/AUDIT.md`](docs/AUDIT.md) and [`docs/METHODOLOGY.md`](docs/METHODOLO
 
 ## GitHub Pages build
 
-The GitHub Pages version is optimized for browser performance. It retains the full atlas-level summary statistics and uses a coarser web map grid plus representative candidate-table samples. The original full-resolution project/data bundle should be retained separately for archival analysis and reproducibility.
+The GitHub Pages version is optimized for browser performance. It retains the full atlas-level summary statistics and uses representative spatial and candidate previews. The original full-resolution project/data bundle should be retained separately for archival analysis and reproducibility.
 
 ## Run locally
 
