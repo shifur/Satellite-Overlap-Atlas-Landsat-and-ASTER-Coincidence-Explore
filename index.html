@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Explore predicted Landsat and ASTER overlap windows with MODIS and VIIRS, 2012–2026.">
+<title>Overlapping Satellite Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#dashboard">Skip to dashboard</a>
+<header class="masthead">
+  <div class="mast-inner">
+    <div class="brand-block">
+      <div class="eyebrow">ORBIT COINCIDENCE ATLAS · 2012–2026</div>
+      <h1>Overlapping Satellite Dashboard</h1>
+      <p>Explore where satellite overpasses align in space and time across Landsat, ASTER, MODIS and VIIRS.</p>
+    </div>
+    <div class="status" title="Predicted from satellite orbit geometry and timing. Actual imagery availability still needs acquisition-catalog confirmation.">
+      <span class="status-icon" aria-hidden="true">i</span>
+      <span><strong>Potential satellite overlaps</strong><br><span class="status-sub">Based on orbit timing and location</span></span>
+    </div>
+  </div>
+</header>
+
+<div class="satbar-wrap">
+  <nav class="satbar" role="tablist" aria-label="Reference satellite">
+    <button class="sat-tab active" role="tab" aria-selected="true" aria-controls="panel-landsat" id="tab-landsat" data-sat="landsat">
+      <span class="tab-kicker">REFERENCE</span><span class="tab-title">Landsat</span><span class="tab-meta">L7 · L8 · L9</span>
+    </button>
+    <button class="sat-tab" role="tab" aria-selected="false" aria-controls="panel-aster" id="tab-aster" data-sat="aster">
+      <span class="tab-kicker">REFERENCE</span><span class="tab-title">ASTER</span><span class="tab-meta">Terra platform</span>
+    </button>
+  </nav>
+  <div class="quicklinks">
+    <a href="docs/AUDIT.md">Audit</a>
+    <a href="docs/METHODOLOGY.md">Method</a>
+    <a href="downloads/">Data</a>
+  </div>
+</div>
+
+<main id="dashboard">
+  <section class="sat-panel active" id="panel-landsat" role="tabpanel" aria-labelledby="tab-landsat">
+    <div class="context-strip">
+      <div><strong>Landsat reference scenes</strong><span>Triple coincidences require a MODIS and VIIRS view within the selected gap.</span></div>
+      <span class="pill">17,469 ≤300 s candidates</span>
+    </div>
+    <iframe id="frame-landsat" src="satellites/landsat.html#explore" title="Landsat Coincidence Atlas" loading="eager"></iframe>
+  </section>
+  <section class="sat-panel" id="panel-aster" role="tabpanel" aria-labelledby="tab-aster" hidden>
+    <div class="context-strip amber">
+      <div><strong>ASTER reference scenes</strong><span>ASTER and Terra MODIS share one platform, so Terra MODIS Δt = 0 s by construction.</span></div>
+      <span class="pill">277,760 ≤300 s VIIRS candidates</span>
+    </div>
+    <iframe id="frame-aster" data-src="satellites/aster.html#explore" title="ASTER Coincidence Atlas" loading="lazy"></iframe>
+  </section>
+</main>
+
+<footer>
+  <p>Orbit-based overlap atlas · predicted geometry and timing, with acquisition verification handled separately.</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
