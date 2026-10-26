@@ -52,9 +52,22 @@
   </section>
   <section class="sat-panel" id="panel-aster" role="tabpanel" aria-labelledby="tab-aster" hidden>
     <div class="context-strip amber">
-      <div><strong>ASTER reference scenes</strong><span>ASTER and Terra MODIS share one platform, so Terra MODIS Δt = 0 s by construction.</span></div>
-      <span class="pill">277,760 ≤300 s VIIRS candidates</span>
+      <div><strong>ASTER modeled opportunities</strong><span>Terra MODIS shares the Terra platform; its 0 s atlas gap is a modeling relationship, not proof of a usable ASTER acquisition.</span></div>
+      <span class="pill">277,760 modeled ≤300 s VIIRS opportunities</span>
     </div>
+    <aside class="aster-caveat" aria-label="Important ASTER interpretation note">
+      <div class="caveat-icon" aria-hidden="true">!</div>
+      <div class="caveat-copy">
+        <strong>Modeled overlap ≠ validation-ready data</strong>
+        <p>The atlas predicts where orbit timing and location align. ASTER is a targeted instrument, so a modeled scene opportunity does not mean ASTER imagery was actually acquired. A displayed 0 s Terra-MODIS gap also does <em>not</em> mean ASTER and VIIRS are simultaneous.</p>
+        <div class="caveat-grid">
+          <span><b>Acquisition</b> Verify an actual ASTER scene exists.</span>
+          <span><b>Timing</b> Recover native observation time, not only modeled orbit time.</span>
+          <span><b>Geometry</b> Confirm the target sensor's native footprint overlaps usable ASTER pixels.</span>
+          <span><b>Fire reference</b> ASTER SWIR became unusable in 2008; the historical SWIR-based binary fire method does not directly apply to VIIRS-era ASTER scenes.</span>
+        </div>
+      </div>
+    </aside>
     <iframe id="frame-aster" data-src="satellites/viewer.html?sat=aster#explore" title="ASTER Coincidence Atlas" loading="lazy"></iframe>
   </section>
 </main>
